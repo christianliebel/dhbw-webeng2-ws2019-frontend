@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public myTodo = { name: 'Wäsche waschen', id: 5, done: false };
+
+  public onDone(todo) {
+    console.log(todo);
+  }
 }
