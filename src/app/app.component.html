@@ -1,9 +1,8 @@
 <h1 appClicker appTest="blue">Meine Angular-App</h1>
+<!--
 <app-todo appClicker appTest="hotpink" [todo]="myTodo" (done)="onDone($event)"></app-todo>
-
-<ul>
-  <li *ngFor="let todo of todos">{{ todo.name }}</li>
-</ul>
+-->
+<app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
 
 <hr>
 
