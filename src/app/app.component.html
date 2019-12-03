@@ -1,21 +1,2 @@
-{{ 'hallo' }}
-{{ 3 }}
-{{ 17 + 4 + title }}
-{{ '<div>foo</div>' }}
-
-<p>{{ pi | percent }}</p>
-<p>{{ pi | currency:'EUR' }}</p>
-<p>{{ pi | number:'0.5' }}</p>
-
-<p>{{ value | uppercase }}</p>
-<p>{{ value | yell }}</p>
-<p>{{ value | yell:'???' }}</p>
-
-<div [style.backgroundColor]="color">
-  Test!
-</div>
-
-<button (click)="onClick($event)"
-  (mousemove)="onMouseMove($event)">
-  Test
-</button>
+<h1>Meine Angular-App</h1>
+<app-todo [todo]="myTodo"></app-todo>
