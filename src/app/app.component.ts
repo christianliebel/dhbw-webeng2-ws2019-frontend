@@ -1,5 +1,6 @@
 import { TodoService } from './todo.service';
 import { Component, ElementRef } from '@angular/core';
+import { Todo } from './todo';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,12 @@ import { Component, ElementRef } from '@angular/core';
 })
 export class AppComponent {
   public myTodo = { name: 'Wäsche waschen', id: 5, done: false };
+  public todos: Todo[];
 
   constructor(elementRef: ElementRef, todoService: TodoService) {
     console.log(elementRef);
     console.log(todoService.getAll());
+    this.todos = todoService.getAll();
   }
 
   public onDone(todo) {

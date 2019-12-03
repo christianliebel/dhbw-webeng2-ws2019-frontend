@@ -1,2 +1,11 @@
 <h1 appClicker appTest="blue">Meine Angular-App</h1>
 <app-todo appClicker appTest="hotpink" [todo]="myTodo" (done)="onDone($event)"></app-todo>
+
+<ul>
+  <li *ngFor="let todo of todos">{{ todo.name }}</li>
+</ul>
+
+<hr>
+
+<button (click)="show = !show">Toggle</button>
+<div *ngIf="show">Foo</div>
