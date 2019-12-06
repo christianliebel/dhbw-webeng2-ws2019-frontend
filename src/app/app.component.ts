@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { TodoService } from './todo.service';
 import { Component, ElementRef } from '@angular/core';
 import { Todo } from './todo';
@@ -12,7 +13,8 @@ export class AppComponent {
   public myTodo = { name: 'Wäsche waschen', id: 5, done: false };
   public todos$: Observable<Todo[]>;
 
-  constructor(elementRef: ElementRef, todoService: TodoService) {
+  constructor(elementRef: ElementRef, todoService: TodoService,
+    private authService: AuthService) {
     console.log(elementRef);
     console.log(todoService.getAll());
     this.todos$ = todoService.getAll();
@@ -20,5 +22,11 @@ export class AppComponent {
 
   public onDone(todo) {
     console.log(todo);
+  }
+
+  public login() {
+    if (!this.authService.loggedIn) {
+      this.authService.login();
+    }
   }
 }

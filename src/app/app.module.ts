@@ -1,6 +1,7 @@
+import { InterceptorService } from './interceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken, Inject } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,10 @@ export const APP_NAME = new InjectionToken<string>('app-name');
   providers: [{
     provide: APP_NAME,
     useValue: 'My cool app'
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
   }],
   bootstrap: [AppComponent]
 })
