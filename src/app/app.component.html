@@ -2,7 +2,7 @@
 <!--
 <app-todo appClicker appTest="hotpink" [todo]="myTodo" (done)="onDone($event)"></app-todo>
 -->
-<app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+<app-todo *ngFor="let todo of todos$ | async" [todo]="todo"></app-todo>
 
 <hr>
 
