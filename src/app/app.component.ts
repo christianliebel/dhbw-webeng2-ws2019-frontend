@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public myTodo = { name: 'Wäsche waschen', id: 5, done: false };
+  public myTodo = { name: 'Wäsche waschen', done: false };
   public todos$: Observable<Todo[]>;
 
-  constructor(elementRef: ElementRef, todoService: TodoService,
+  constructor(elementRef: ElementRef, private todoService: TodoService,
     private authService: AuthService) {
     console.log(elementRef);
     console.log(todoService.getAll());
@@ -28,5 +28,9 @@ export class AppComponent {
     if (!this.authService.loggedIn) {
       this.authService.login();
     }
+  }
+
+  public create(todo: Todo) {
+    this.todoService.create(todo).subscribe();
   }
 }

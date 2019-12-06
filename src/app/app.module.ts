@@ -2,6 +2,7 @@ import { InterceptorService } from './interceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken, Inject } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ export const APP_NAME = new InjectionToken<string>('app-name');
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{
     provide: APP_NAME,

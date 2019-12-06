@@ -6,4 +6,9 @@
 
 <hr>
 
+<form (ngSubmit)="create(myTodo)">
+  <input name="name" [(ngModel)]="myTodo.name">
+  <button type="submit">Wegschicken</button>
+</form>
+
 <button (click)="login()">Login</button>
