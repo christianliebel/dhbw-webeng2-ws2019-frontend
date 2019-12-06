@@ -21,11 +21,6 @@ export class AuthService {
     shareReplay(1), // Every subscription receives the same shared value
     catchError(err => throwError(err))
   );
-  getTokenSilently$(options?): Observable<string> {
-    return this.auth0Client$.pipe(
-      concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
-    );
-  }
   // Define observables for SDK methods that return promises by default
   // For each Auth0 SDK method, first ensure the client instance is ready
   // concatMap: Using the client instance, call SDK method; SDK returns a promise
@@ -129,4 +124,9 @@ export class AuthService {
     });
   }
 
+  getTokenSilently$(options?): Observable<string> {
+    return this.auth0Client$.pipe(
+      concatMap((client: Auth0Client) => from(client.getTokenSilently(options)))
+    );
+  }
 }
